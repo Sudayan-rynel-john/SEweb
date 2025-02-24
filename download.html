@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download - Soulbound</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="Home.html" class="logo">
+      <h1>Dreambound</h1>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="download.html">Download</a></li>
+        <li><a href="support.html">FAQs</a></li>
+        <li><a href="game.html">Game</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="download-container">
+    <h2>Download Dreambound Now</h2>
+    <button class="download-button" onclick="trackDownload()">Download</button>
+    <p class="download-count">Downloads: <span id="count">0</span></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dreambound. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function redirectToHome() {
+      window.location.href = "index.html";
+    }
+
+    let downloadCount = localStorage.getItem('downloadCount') || 0;
+    document.getElementById('count').textContent = downloadCount;
+
+    function trackDownload() {
+      downloadCount++;
+      localStorage.setItem('downloadCount', downloadCount);
+      document.getElementById('count').textContent = downloadCount;
+      window.location.href = 'game.zip';
+    }
+  </script>
+</body>
+</html>
